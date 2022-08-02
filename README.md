@@ -80,6 +80,60 @@ A ce stade l'agent Frida est installé, on peux désormais se connecter de plusi
 * En utilisant Objection (objection --help)
 * En utilisant Python (pip install frida)
 
+# Embarqué (Non-root)
+Dans un premier temps, on installe apktool:<br>
+https://ibotpeaches.github.io/Apktool/install/
+
+Par la suite on viendra placer `apktool.jar` ainsi que `apktool.bat` dans le dossier suivant: <br>
+`%APPDATA%\Local\Android\Sdk\platform-tools`
+
+On ajoute nos repertoires dans la variable d'environnement `Path`:<br><br>
+`%APPDATA%\Local\Android\Sdk\build-tools\33.0.0` - Contenant aapt, apksigner et zipalign<br><br>
+`%APPDATA%\Local\Android\Sdk\platform-tools` - Contenant adb et apktool<br>
+
+#### Dependencies
+https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---dependencies
+
+Par la suite java est requis afin d'utiliser apktool:
+https://www.java.com/fr/download/manual.jsp
+
+On patch notre application avec objection:
+`objection patchapk -s "C:\Users\CHAUVIN ANTOINE\Downloads\sub.apk"`
+
+### En cas de soucis avec patchapk
+* https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
+* https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
+
+Au prochain démarrage de l'application elle se bloquera : la bibliothèque `libfrida-gadget.so` injectée a ouvert un socket tcp et attend une connexion de frida.
+
+Vérifier que Frida à ouvert un socket:<br>
+`adb logcat | findstr -i frida`
+
+En retour vous devriez obtenir:
+```
+Frida: Listening on TCP port 27042
+```
+
+Si on observe dans la liste des processus:
+`frida-ps -U`
+
+```
+Waiting for USB device to appear...
+  PID  Name
+-----  ------
+16071  Gadget
+```
+
+Le nom du processus que nous utiliserons dans les outils Frida doit être `Gadget` au lieu du nom de package normal.<br>
+L'identifier sera `re.frida.Gadget`
+
+A ce stade l'agent Frida est installé, on peux désormais se connecter de plusieurs façons:
+
+En utilisant Frida CLI (frida --help)
+En utilisant Objection (objection --help)
+En utilisant Python (pip install frida)
+
+
 ## Frida CLI
 ```
 usage: frida [options] target
@@ -193,52 +247,5 @@ Par défaut, objection fait spawn un process afin de s'y connecter (en mode non-
 `objection -g com.app.app explore --startup-command "android sslpinning disable"`
 
 Plus d'infos: https://github.com/sensepost/objection/wiki
-
-# Embarqué (Non-root)
-Dans un premier temps, on installe apktool:<br>
-https://ibotpeaches.github.io/Apktool/install/
-
-Par la suite on viendra placer `apktool.jar` ainsi que `apktool.bat` dans le dossier suivant: <br>
-`%APPDATA%\Local\Android\Sdk\platform-tools`
-
-On ajoute nos repertoires dans la variable d'environnement `Path`:<br><br>
-`%APPDATA%\Local\Android\Sdk\build-tools\33.0.0` - Contenant aapt, apksigner et zipalign<br><br>
-`%APPDATA%\Local\Android\Sdk\platform-tools` - Contenant adb et apktool<br>
-
-#### Dependencies
-https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---dependencies
-
-Par la suite java est requis afin d'utiliser apktool:
-https://www.java.com/fr/download/manual.jsp
-
-On patch notre application avec objection:
-`objection patchapk -s "C:\Users\CHAUVIN ANTOINE\Downloads\sub.apk"`
-
-### En cas de soucis avec patchapk
-* https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
-* https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
-
-Au prochain démarrage de l'application elle se bloquera : la bibliothèque `libfrida-gadget.so` injectée a ouvert un socket tcp et attend une connexion de frida.
-
-Vérifier que Frida à ouvert un socket:<br>
-`adb logcat | findstr -i frida`
-
-En retour vous devriez obtenir:
-```
-Frida: Listening on TCP port 27042
-```
-
-Si on observe dans la liste des processus:
-`frida-ps -U`
-
-```
-Waiting for USB device to appear...
-  PID  Name
------  ------
-16071  Gadget
-```
-
-Le nom du processus que nous utiliserons dans les outils Frida doit être `Gadget` au lieu du nom de package normal.<br>
-L'identifier sera `re.frida.Gadget`
 
 
