@@ -227,3 +227,18 @@ En retour vous devriez obtenir:
 ```
 Frida: Listening on TCP port 27042
 ```
+
+Si on observe dans la liste des processus:
+`frida-ps -U`
+
+```
+Waiting for USB device to appear...
+  PID  Name
+-----  ------
+16071  Gadget
+```
+
+Le nom du processus que nous utiliserons dans les outils Frida doit être `Gadget` au lieu du nom de package normal.<br>
+L'identifier sera `re.frida.Gadget`
+
+
