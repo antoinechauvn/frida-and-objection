@@ -54,4 +54,14 @@ On change de répertoire afin d'utiliser ADB (par défaut disponible sur Android
 Puis on consulte l'architecture du processeur:<br>
 `adb shell getprop ro.product.cpu.abi`
 
+Par la suite il faut télécharger le serveur correspondant à l'architecture<br>
+https://github.com/frida/frida/releases
+
+Une fois l'archive décompresser on transmet le fichier frida-server sur l'appareil:
+```cmd
+adb root
+adb push "emplacement du fichier frida-server" /data/local/tmp/
+adb shell "chmod 755 /data/local/tmp/nom_du_fichier_frida_server
+```
+
 
