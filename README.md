@@ -253,12 +253,14 @@ Plus d'infos: https://github.com/sensepost/objection/wiki
 ### Basic frida python hooking
 
 ```py
-import frida, sys
-
-jscode = open(sys.argv[0]).read()
-process = frida.get_usb_device().attach('infosecadventures.fridademo')
-script = process.create_script(jscode)
-print('[ * ] Running Frida Demo application')
+import frida
+device = frida.get_usb_device()
+pid = device.spawn(["com.tlamb96.spetsnazmessenger"])
+session = device.attach(pid)
+script = session.create_script(open("hello_frida.js").read())
 script.load()
-sys.stdin.read()
+device.resume(pid)
+
+# Prevent the script from terminating
+input()
 ```
