@@ -33,11 +33,13 @@ Frida fonctionne de 3 façon différentes:
   * Processus frida-server en background (daemon) écoutant sur `localhost:27042`
   * Injection de la librairie `frida-agent` via `ptrace` en attachant ou en créant un processus
   * Nécessite des privilèges root pour ptrace
+  
 * Embarqué (Embedded)
   * Appareil Non-root
   * Patch d'application en intégrant la librairie `frida-gadget`
   * `frida-gadget` expose une interface compatible `frida-server` , écoutant sur `localhost:27042`
   * Le nom du processus sera toujours `Gadget` et l'identifiant de l'application installée est toujours `re.frida.Gadget`
+  
 * Préchargé (Preloaded)
 
 ### Utilitaires Frida
