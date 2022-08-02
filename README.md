@@ -4,7 +4,12 @@ Désactivation du SSL Pinning en utilisant Frida et Objection
 ![image](https://user-images.githubusercontent.com/83721477/182407238-f8d56dcf-d9ff-4e19-b86e-13a82162696b.png)
 ![image](https://user-images.githubusercontent.com/83721477/182347358-73faa728-d03f-462c-927d-9a7e2478dbd3.png)
 
-Pré-requis: Python, Java, Android Studio
+<h1 align="center">Pré-requis</h1>
+
+* Python
+* Java
+* Android Studio
+<h1></h1>
 
 ### Qu'est-ce que Frida?
 ```
