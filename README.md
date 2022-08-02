@@ -213,6 +213,8 @@ https://www.java.com/fr/download/manual.jsp
 On patch notre application avec objection:
 `objection patchapk -s "C:\Users\CHAUVIN ANTOINE\Downloads\sub.apk"`
 
-Si vous rencontrez des problèmes, certaines solutions comme `aapt2` sont à envisager:
-https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
-https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
+<hr>
+
+### En cas de soucis avec patchapk
+* https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
+* https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
