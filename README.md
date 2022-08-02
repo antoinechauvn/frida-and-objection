@@ -43,7 +43,7 @@ Frida fonctionne de 3 façon différentes:
 `frida-ls-devices` : outil en ligne de commande pour lister les périphériques attachés (très utile quand on interagit avec plusieurs périphériques).<br>https://frida.re/docs/frida-ls-devices/<br><br>
 `frida-kill` : outil en ligne de commande pour tuer les processus.<br>https://frida.re/docs/frida-kill/
 
-# Injection
+# Injection (Root)
 
 On installe la librairie frida-tools pour python.
 `pip install frida-tools`
@@ -193,3 +193,26 @@ Par défaut, objection fait spawn un process afin de s'y connecter (en mode non-
 `objection -g com.app.app explore --startup-command "android sslpinning disable"`
 
 Plus d'infos: https://github.com/sensepost/objection/wiki
+
+# Embarqué (Non-root)
+Dans un premier temps, on installe apktool:<br>
+https://ibotpeaches.github.io/Apktool/install/
+
+Par la suite on viendra placer `apktool.jar` ainsi que `apktool.bat` dans le dossier suivant: <br>
+`%APPDATA%\Local\Android\Sdk\platform-tools`
+
+On ajoute nos repertoires dans la variable d'environnement `Path`:<br><br>
+`%APPDATA%\Local\Android\Sdk\build-tools\33.0.0` - Contenant aapt, apksigner et zipalign<br><br>
+`%APPDATA%\Local\Android\Sdk\platform-tools` - Contenant adb et apktool<br>
+
+Liste des dépendances: https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---dependencies
+
+Par la suite java est requis afin d'utiliser apktool:
+https://www.java.com/fr/download/manual.jsp
+
+On patch notre application avec objection:
+`objection patchapk -s "C:\Users\CHAUVIN ANTOINE\Downloads\sub.apk"`
+
+Si vous rencontrez des problèmes, certaines solutions comme `aapt2` sont à envisager:
+https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
+https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
