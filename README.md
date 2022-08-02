@@ -22,6 +22,10 @@ vos applications mobiles, sans avoir besoin d'un jailbreak.
 Frida fonctionne de 3 façon différentes:
 
 * Injecté (Injection)
+  * Connnexion client/server via frida-server
+  * Processus frida-server en background (daemon) écoutant sur `localhost:27042`
+  * Injection de l'agent via `ptrace` en attachant ou en créant un processus
+  * Nécessite des privilèges root pour ptrace
 * Embarqué (Embedded)
   * Appareil Non-root
   * Patch d'application en intégrant la librairie `frida-gadget`
@@ -34,4 +38,6 @@ Frida fonctionne de 3 façon différentes:
 `frida-discover` : outil pour découvrir les fonctions internes d'un programme, qui peuvent ensuite être suivies en utilisant frida-trace.<br>https://frida.re/docs/frida-discover/<br><br>
 `frida-ls-devices` : outil en ligne de commande pour lister les périphériques attachés (très utile quand on interagit avec plusieurs périphériques).<br>https://frida.re/docs/frida-ls-devices/<br><br>
 `frida-kill` : outil en ligne de commande pour tuer les processus.<br>https://frida.re/docs/frida-kill/
+
+![image](https://user-images.githubusercontent.com/83721477/182355512-32b54896-3c92-4fe2-bb50-62ee2d890762.png)
 
