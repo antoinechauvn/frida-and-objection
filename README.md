@@ -4,6 +4,8 @@ Désactivation du SSL Pinning en utilisant Frida et Objection
 ![image](https://user-images.githubusercontent.com/83721477/182347358-73faa728-d03f-462c-927d-9a7e2478dbd3.png)
 ![image](https://user-images.githubusercontent.com/83721477/182347372-aa4f333d-fb94-42dd-916a-d5ce9309dd1b.png)
 
+Pré-requis: Python, Java, Android Studio
+
 ### Qu'est-ce que Frida?
 ```
 Frida est une boîte à outils d'instrumentation de code dynamique qui permet d'injecter des extraits de JavaScript ou
@@ -29,6 +31,8 @@ Frida fonctionne de 3 façon différentes:
 * Embarqué (Embedded)
   * Appareil Non-root
   * Patch d'application en intégrant la librairie `frida-gadget`
+  * `frida-gadget` expose une interface compatible `frida-server` , écoutant sur `localhost:27042`
+  * Le nom du processus sera toujours `Gadget` et l'identifiant de l'application installée est toujours `re.frida.Gadget`
 * Préchargé (Preloaded)
 
 ### Utilitaires Frida
@@ -39,5 +43,15 @@ Frida fonctionne de 3 façon différentes:
 `frida-ls-devices` : outil en ligne de commande pour lister les périphériques attachés (très utile quand on interagit avec plusieurs périphériques).<br>https://frida.re/docs/frida-ls-devices/<br><br>
 `frida-kill` : outil en ligne de commande pour tuer les processus.<br>https://frida.re/docs/frida-kill/
 
-![image](https://user-images.githubusercontent.com/83721477/182356605-c666b175-b74d-4dd9-92e2-70e6c17e5619.png)
+# Injection
+
+On installe la librairie frida-tools pour python.
+`pip install frida-tools`
+
+Avant l'installation du serveur, il faut sélectionner le serveur Frida (`frida-server`) en fonction des différentes architectures de processeur.<br><br>
+On change de répertoire afin d'utiliser ADB (par défaut disponible sur Android Studio):<br>
+`cd %APPDATA%\Local\Android\Sdk\platform-tools`<br><br>
+Puis on consulte l'architecture du processeur:<br>
+`adb shell getprop ro.product.cpu.abi`
+
 
