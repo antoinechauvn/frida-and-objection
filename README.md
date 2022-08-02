@@ -24,7 +24,7 @@ Frida fonctionne de 3 façon différentes:
 * Injecté (Injection)
   * Connnexion client/server via frida-server
   * Processus frida-server en background (daemon) écoutant sur `localhost:27042`
-  * Injection de l'agent via `ptrace` en attachant ou en créant un processus
+  * Injection de la librairie `frida-agent` via `ptrace` en attachant ou en créant un processus
   * Nécessite des privilèges root pour ptrace
 * Embarqué (Embedded)
   * Appareil Non-root
