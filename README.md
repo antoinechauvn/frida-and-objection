@@ -248,4 +248,17 @@ Par défaut, objection fait spawn un process afin de s'y connecter (en mode non-
 
 Plus d'infos: https://github.com/sensepost/objection/wiki
 
+## Python
 
+### Basic frida python hooking
+
+```py
+import frida, sys
+
+jscode = open(sys.argv[0]).read()
+process = frida.get_usb_device().attach('infosecadventures.fridademo')
+script = process.create_script(jscode)
+print('[ * ] Running Frida Demo application')
+script.load()
+sys.stdin.read()
+```
