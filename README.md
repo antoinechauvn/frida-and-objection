@@ -39,5 +39,6 @@ Frida fonctionne de 3 façon différentes:
 `frida-ls-devices` : outil en ligne de commande pour lister les périphériques attachés (très utile quand on interagit avec plusieurs périphériques).<br>https://frida.re/docs/frida-ls-devices/<br><br>
 `frida-kill` : outil en ligne de commande pour tuer les processus.<br>https://frida.re/docs/frida-kill/
 
-![image](https://user-images.githubusercontent.com/83721477/182355512-32b54896-3c92-4fe2-bb50-62ee2d890762.png)
+![182355512-32b54896-3c92-4fe2-bb50-62ee2d890762-removebg-preview](https://user-images.githubusercontent.com/83721477/182355617-9d4878ec-7f3c-4664-9ad4-2aa6ff4a699f.png)
+
 
