@@ -13,15 +13,15 @@ Désactivation du SSL Pinning en utilisant Frida et Objection
 
 ### Qu'est-ce que Frida?
 ```
-Frida est une boîte à outils d'instrumentation de code dynamique qui permet d'injecter des extraits de JavaScript ou
-d'une bibliothèque dans des applications natives sur iOS et Android (mais pas seulement) et de déboguer un processus
-en cours d'exécution.
+Frida est une boîte à outils d'instrumentation de code dynamique qui permet d'injecter des extraits de
+JavaScript ou d'une bibliothèque dans des applications natives sur iOS et Android (mais pas seulement)
+et de déboguer un processus en cours d'exécution.
 ```
 
 ### Qu'est-ce que Objection?
 ```
-objection est une boîte à outils d'exploration mobile, crée par Frida, conçue pour vous aider à évaluer la sécurité de
-vos applications mobiles, sans avoir besoin d'un jailbreak.
+objection est une boîte à outils d'exploration mobile, crée par Frida, conçue pour vous aider à évaluer
+la sécurité de vos applications mobiles, sans avoir besoin d'un jailbreak.
 ```
 
 ## Principe de Fonctionnement
