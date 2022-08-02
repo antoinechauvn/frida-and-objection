@@ -69,4 +69,5 @@ Pour infos: https://chmodcommand.com/chmod-755/
 On lance ensuite le processus en arrière-plan:<br>
 `adb shell "/data/local/tmp/nom_du_fichier_frida_server &"`
 
-
+Par la on lance le processus adb:<br>
+adb devices -l
