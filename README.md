@@ -218,7 +218,7 @@ On patch notre application avec objection:
 * https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
 * https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
 
-Au prochain démarrage de l'application, l'application se bloquera : la bibliothèque libfrida-gadget.so injectée a ouvert un socket tcp et attend une connexion de frida.
+Au prochain démarrage de l'application elle se bloquera : la bibliothèque `libfrida-gadget.so` injectée a ouvert un socket tcp et attend une connexion de frida.
 
 Vérifier que Frida à ouvert un socket:<br>
 `adb logcat | findstr -i frida`
