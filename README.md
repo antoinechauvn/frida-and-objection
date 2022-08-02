@@ -57,11 +57,16 @@ Puis on consulte l'architecture du processeur:<br>
 Par la suite il faut télécharger le serveur correspondant à l'architecture<br>
 https://github.com/frida/frida/releases
 
-Une fois l'archive décompresser on transmet le fichier frida-server sur l'appareil:
+Une fois l'archive décompresser on transmet le fichier frida-server sur l'appareil et on change les permissions:
 ```cmd
 adb root
 adb push "emplacement du fichier frida-server" /data/local/tmp/
 adb shell "chmod 755 /data/local/tmp/nom_du_fichier_frida_server
 ```
+
+Pour infos: https://chmodcommand.com/chmod-755/
+
+On lance ensuite le processus en arrière-plan:
+`adb shell "/data/local/tmp/nom_du_fichier_frida_server &"`
 
 
