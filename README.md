@@ -66,7 +66,7 @@ adb shell "chmod 755 /data/local/tmp/nom_du_fichier_frida_server
 
 Pour infos: https://chmodcommand.com/chmod-755/
 
-On lance ensuite le processus en arrière-plan:
+On lance ensuite le processus en arrière-plan:<br>
 `adb shell "/data/local/tmp/nom_du_fichier_frida_server &"`
 
 
