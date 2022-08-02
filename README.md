@@ -1,7 +1,7 @@
 # disable-ssl-pinning
 Désactivation du SSL Pinning en utilisant Frida et Objection
 
-![image](https://user-images.githubusercontent.com/83721477/182406747-41b87736-3bab-4214-ac6d-90282b6eada7.png)
+![image](https://user-images.githubusercontent.com/83721477/182407238-f8d56dcf-d9ff-4e19-b86e-13a82162696b.png)
 ![image](https://user-images.githubusercontent.com/83721477/182347358-73faa728-d03f-462c-927d-9a7e2478dbd3.png)
 
 Pré-requis: Python, Java, Android Studio
