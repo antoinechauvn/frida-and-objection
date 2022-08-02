@@ -205,7 +205,8 @@ On ajoute nos repertoires dans la variable d'environnement `Path`:<br><br>
 `%APPDATA%\Local\Android\Sdk\build-tools\33.0.0` - Contenant aapt, apksigner et zipalign<br><br>
 `%APPDATA%\Local\Android\Sdk\platform-tools` - Contenant adb et apktool<br>
 
-Liste des dépendances: https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---dependencies
+#### Dependencies
+https://github.com/sensepost/objection/wiki/Patching-Android-Applications#patching---dependencies
 
 Par la suite java est requis afin d'utiliser apktool:
 https://www.java.com/fr/download/manual.jsp
@@ -213,8 +214,16 @@ https://www.java.com/fr/download/manual.jsp
 On patch notre application avec objection:
 `objection patchapk -s "C:\Users\CHAUVIN ANTOINE\Downloads\sub.apk"`
 
-<hr>
-
 ### En cas de soucis avec patchapk
 * https://stackoverflow.com/questions/50725735/invalid-resource-directory-navigation
 * https://github.com/sensepost/objection/wiki/Android-APK-Patching#debugging-failed-patches
+
+Au prochain démarrage de l'application, l'application se bloquera : la bibliothèque libfrida-gadget.so injectée a ouvert un socket tcp et attend une connexion de frida.
+
+Vérifier que Frida à ouvert un socket:<br>
+`adb logcat | findstr -i frida`
+
+En retour vous devriez obtenir:
+```
+Frida: Listening on TCP port 27042
+```
