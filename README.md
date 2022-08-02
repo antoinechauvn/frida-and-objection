@@ -186,7 +186,7 @@ Commands:
   ```
 
 ### Basic objection hooking
-Par défaut, objection fait spawn un process afin de s'y connecter (en mode non-root on parlera de connexion à un gadget)
+Par défaut, objection fait spawn un process afin de s'y connecter (en mode non-root on parlera de connexion à un gadget)<br>
 `objection -g com.app.app explore`
 
 ### Hooking before starting the app
