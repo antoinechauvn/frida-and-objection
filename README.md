@@ -23,6 +23,8 @@ Frida fonctionne de 3 façon différentes:
 
 * Injecté (Injection)
 * Embarqué (Embedded)
+  * Appareil Non-root
+  * Patch d'application en intégrant la librairie `frida-gadget`
 * Préchargé (Preloaded)
 
 ### Utilitaires Frida
